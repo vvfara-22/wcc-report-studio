@@ -29,3 +29,71 @@ td input{width:100%;min-width:72px;background:transparent;border-color:transpare
 @page{size:A4;margin:10mm}
 @media print{:root:root:root{--bg:#fff!important;--fg:#000!important;--cd:#fff!important;--bd:#ccc!important;--sf:#f2f2f2!important;--mut:#555!important;--ac:#4b3fa8!important;--ac2:#fff!important;color-scheme:light!important}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}header,.tabs,.np{display:none!important}body::before{display:none}.w{padding:0;max-width:none}.card{break-inside:avoid;border-color:#ccc}.hero{background:#4b3fa8!important;color:#fff!important}.sec{break-before:page}.sec:first-of-type{break-before:auto}.sc{overflow:visible}.cv{min-width:0!important}th,td{white-space:normal}.g{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}}
+
+/* ===== RESPONSIF HP & TABLET (hanya layar, tidak mengubah hasil cetak PDF) ===== */
+@media screen{
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,canvas{max-width:100%}
+.g>*,.g2>*{min-width:0}              /* cegah tabel/grafik melebarkan halaman */
+.g2{grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+.in,.w{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}
+.bar{padding-left:0;padding-right:0}
+.chips{-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px}
+.chips::-webkit-scrollbar{display:none}
+.chips>*,.tabs>*{flex:0 0 auto}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+#sel select{max-width:100%}
+}
+
+/* Layar sentuh (HP & tablet): target ketuk lebih besar, anti-zoom iOS */
+@media screen and (pointer:coarse){
+button,.btn{min-height:40px}
+input,select,textarea{font-size:16px;min-height:38px}
+td input{min-width:90px}
+}
+
+/* Tablet (601px - 1024px) */
+@media screen and (min-width:601px) and (max-width:1024px){
+.w{padding-bottom:70px}
+.g{grid-template-columns:repeat(auto-fit,minmax(160px,1fr))}
+.hero h1{font-size:26px}
+.cv{height:320px}
+}
+
+/* HP (maks. 600px) */
+@media screen and (max-width:600px){
+body{font-size:14px}
+.bar{position:static}                 /* header tidak memakan layar saat scroll */
+.bar .row{gap:6px}
+.brand{font-size:16px}
+.bar .sp{display:none}
+#pw,#pb{flex:1 1 calc(50% - 6px);font-size:13px;padding:6px 8px}
+.step{padding:6px 10px;font-size:13px}
+#sel{flex-wrap:wrap}
+#sel select{flex:1 1 100%;width:100%}
+.w{padding-top:2px;padding-bottom:50px}
+.card{padding:12px;border-radius:14px;margin:10px 0}
+.hero h1{font-size:20px}
+.sec{font-size:15px;margin:22px 0 4px}
+.g{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.g2,.cat{grid-template-columns:minmax(0,1fr)}
+.g.s{grid-template-columns:repeat(2,minmax(0,1fr))}
+.kpi b{font-size:19px}
+.cv{height:240px}
+th,td{padding:4px 6px;font-size:12.5px}
+button.add{width:100%}
+textarea{font-size:16px}
+}
+
+/* HP kecil (maks. 380px) */
+@media screen and (max-width:380px){
+.g{grid-template-columns:minmax(0,1fr)}
+.kpi b{font-size:18px}
+.hero h1{font-size:18px}
+}
+
+/* HP posisi landscape: header tetap ringkas */
+@media screen and (max-height:480px) and (orientation:landscape){
+.bar{position:static}
+.cv{height:220px}
+}
