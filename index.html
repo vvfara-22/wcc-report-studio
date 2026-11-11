@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="WCC Report Studio - pembuat laporan mingguan dan bulanan">
+<meta name="theme-color" content="#4b3fa8">
+<title>WCC Report Studio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="bar"><div class="in"><div class="row"><div class="brand">wcc.bydinda <span>Report Studio</span></div><span class="sp"></span><button id="pw">🖨 PDF Mingguan</button><button id="pb">🖨 PDF Bulanan</button></div>
+<div class="row chips" id="ac"></div><div class="row chips" id="pg"></div><div class="row" id="sel"></div></div></header>
+<main class="w" id="m"></main>
+
+<!-- Chart.js (CDN utama + cadangan jika gagal dimuat) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" onerror="this.onerror=null;var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js';s.onload=function(){if(window.render)render()};document.head.appendChild(s)"></script>
+<script src="app.js"></script>
+</body>
+</html>
